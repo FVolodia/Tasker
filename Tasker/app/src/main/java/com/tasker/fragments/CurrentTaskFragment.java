@@ -8,26 +8,22 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.tasker.R;
-import com.tasker.presenter.SplashFragmentPresenter;
-
 
 /**
  * A simple {@link Fragment} subclass.
  */
-public class SplashFragment extends Fragment {
-
-    private SplashFragmentPresenter presenter;
+public class CurrentTaskFragment extends Fragment {
 
 
-    public SplashFragment() {
+    public CurrentTaskFragment() {
         // Required empty public constructor
     }
 
-    public static SplashFragment getInstance() {
+    public static CurrentTaskFragment getInstance() {
         Bundle args = new Bundle();
-        SplashFragment splashFragment = new SplashFragment();
-        splashFragment.setArguments(args);
-        return splashFragment;
+        CurrentTaskFragment currentTaskFragment = new CurrentTaskFragment();
+        currentTaskFragment.setArguments(args);
+        return currentTaskFragment;
     }
 
 
@@ -35,11 +31,7 @@ public class SplashFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
-        presenter = new SplashFragmentPresenter(this);
-        presenter.initSplashTask();
-        return inflater.inflate(R.layout.fragment_splash, container, false);
+        return inflater.inflate(R.layout.fragment_current_task, container, false);
     }
-
 
 }

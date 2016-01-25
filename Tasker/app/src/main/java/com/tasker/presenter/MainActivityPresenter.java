@@ -24,7 +24,7 @@ public class MainActivityPresenter {
         if (!PreferencesManager.getSplash(mainActivity)) {
             SplashFragment splashFragment = new SplashFragment();
             manager.beginTransaction()
-                    .replace(R.id.main_coordinator, splashFragment)
+                    .replace(R.id.mainFrame, splashFragment)
                     .addToBackStack(null)
                     .commit();
         }

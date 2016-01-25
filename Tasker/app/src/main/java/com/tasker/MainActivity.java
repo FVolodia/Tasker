@@ -1,10 +1,14 @@
 package com.tasker;
 
+import android.support.design.widget.TabLayout;
+import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 
+import com.tasker.adapter.TabsPageFragmentAdapter;
 import com.tasker.presenter.MainActivityPresenter;
 import com.tasker.util.PreferencesManager;
 
@@ -18,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
 
         presenter = new MainActivityPresenter(this);
         presenter.runSplash();
+        setUI();
     }
 
     @Override
@@ -41,4 +46,22 @@ public class MainActivity extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+    public void setUI() {
+        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+        }
+
+        TabsPageFragmentAdapter adapter = new TabsPageFragmentAdapter(getSupportFragmentManager(), 2, this);
+        ViewPager viewPager = (ViewPager) findViewById(R.id.viewPager);
+        viewPager.setAdapter(adapter);
+
+        TabLayout tabLayout = (TabLayout) findViewById(R.id.tablayout);
+
+        tabLayout.setupWithViewPager(viewPager);
+
+
+    }
+
 }

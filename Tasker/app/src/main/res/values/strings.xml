@@ -8,4 +8,12 @@
     <string name="current_task">Current task</string>
     <string name="done_task">Done task</string>
 
+    <string name="dialog_task">Adding task</string>
+    <string name="task_title">Title</string>
+    <string name="task_date">Date</string>
+    <string name="task_time">Time</string>
+    <string name="dialog_ok">OK</string>
+    <string name="dialog_cancel">Cancel</string>
+    <string name="dialog_error_empty_title">Title does not be empty</string>
+
 </resources>

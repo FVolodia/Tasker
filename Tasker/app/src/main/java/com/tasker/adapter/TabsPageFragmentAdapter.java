@@ -17,10 +17,17 @@ public class TabsPageFragmentAdapter extends FragmentPagerAdapter {
     private int numberOfTab;
     private Context context;
 
+    public static final int CURRENT_TASK_FRAGMENT_POSITION = 0;
+    public static final int DONE_TASK_FRAGMENT_POSITION = 1;
+    private CurrentTaskFragment currentTaskFragment;
+    private DoneTaskFragment doneTaskFragment;
+
     public TabsPageFragmentAdapter(FragmentManager fm, int numberOfTab, Context context) {
         super(fm);
         this.numberOfTab = numberOfTab;
         this.context = context;
+        this.currentTaskFragment = CurrentTaskFragment.getInstance();
+        this.doneTaskFragment = DoneTaskFragment.getInstance();
     }
 
     @Override
@@ -28,9 +35,9 @@ public class TabsPageFragmentAdapter extends FragmentPagerAdapter {
 
         switch (position) {
             case 0:
-                return CurrentTaskFragment.getInstance();
+                return currentTaskFragment;
             case 1:
-                return DoneTaskFragment.getInstance();
+                return doneTaskFragment;
         }
         return null;
     }

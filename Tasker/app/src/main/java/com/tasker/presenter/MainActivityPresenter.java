@@ -3,7 +3,7 @@ package com.tasker.presenter;
 
 import android.support.v4.app.FragmentManager;
 
-import com.tasker.MainActivity;
+import com.tasker.activity.MainActivity;
 import com.tasker.R;
 import com.tasker.fragments.SplashFragment;
 import com.tasker.util.PreferencesManager;

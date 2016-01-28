@@ -14,6 +14,7 @@ import android.view.View;
 
 import com.tasker.R;
 import com.tasker.adapter.TabsPageFragmentAdapter;
+import com.tasker.database.DBHelper;
 import com.tasker.dialog.AddingTaskDialogFragment;
 import com.tasker.fragments.CurrentTaskFragment;
 import com.tasker.fragments.DoneTaskFragment;
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity implements AddingTaskDialogF
     private TabsPageFragmentAdapter adapter;
     private TaskFragment currentTaskFragment;
     private TaskFragment doneTaskFragment;
+    public DBHelper dbHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -38,6 +40,7 @@ public class MainActivity extends AppCompatActivity implements AddingTaskDialogF
         presenter = new MainActivityPresenter(this);
         presenter.runSplash();
         setUI();
+        dbHelper = new DBHelper(getApplicationContext());
     }
 
     @Override
@@ -98,7 +101,7 @@ public class MainActivity extends AppCompatActivity implements AddingTaskDialogF
 
     @Override
     public void onTaskAdded(ModelTask newTask) {
-        currentTaskFragment.addTask(newTask);
+        currentTaskFragment.addTask(newTask, true);
         Alert.snackBar(coordinatorLayout, "Task Added");
 
     }
@@ -111,12 +114,12 @@ public class MainActivity extends AppCompatActivity implements AddingTaskDialogF
 
     @Override
     public void onRestore(ModelTask task) {
-        currentTaskFragment.addTask(task);
+        currentTaskFragment.addTask(task,false);
     }
 
     @Override
     public void onTaskDone(ModelTask task) {
-        doneTaskFragment.addTask(task);
+        doneTaskFragment.addTask(task, false);
 
     }
 }

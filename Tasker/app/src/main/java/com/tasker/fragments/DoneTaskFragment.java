@@ -12,7 +12,11 @@ import android.view.ViewGroup;
 
 import com.tasker.R;
 import com.tasker.adapter.DoneTaskAdapter;
+import com.tasker.database.DBHelper;
 import com.tasker.model.ModelTask;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -59,6 +63,16 @@ public class DoneTaskFragment extends TaskFragment {
         recyclerView.setAdapter(adapter);
 
         return view;
+    }
+
+    @Override
+    public void addTaskFromDB() {
+        List<ModelTask> tasks = new ArrayList<>();
+        tasks.addAll(activity.dbHelper.query().getTask(DBHelper.SELECTION_STATUS, new String[]{Integer.toString(ModelTask.STATUS_DONE)}, DBHelper.TASK_DATE_COLUMN));
+        for (int i = 0; i < tasks.size(); i++) {
+            addTask(tasks.get(i), false);
+        }
+
     }
 
     @Override

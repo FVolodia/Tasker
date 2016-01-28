@@ -15,5 +15,7 @@
     <string name="dialog_ok">OK</string>
     <string name="dialog_cancel">Cancel</string>
     <string name="dialog_error_empty_title">Title does not be empty</string>
+    <string name="dialog_removing_message">Are you sure want to delete this task?</string>
+    <string name="removed">Removed</string>
 
 </resources>

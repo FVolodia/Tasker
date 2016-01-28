@@ -102,13 +102,13 @@ public class MainActivity extends AppCompatActivity implements AddingTaskDialogF
     @Override
     public void onTaskAdded(ModelTask newTask) {
         currentTaskFragment.addTask(newTask, true);
-        Alert.snackBar(coordinatorLayout, "Task Added");
+//        Alert.snackBar(coordinatorLayout, "Task Added");
 
     }
 
     @Override
     public void onTaskAddingCanceled() {
-        Alert.snackBar(coordinatorLayout, "Task Canceled");
+//        Alert.snackBar(coordinatorLayout, "Task Canceled");
 
     }
 
